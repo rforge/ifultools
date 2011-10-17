@@ -2,6 +2,8 @@
 # NAMESPACE file for ifultools #
 ################################
 
+useDynLib(ifultools)
+
 ###
 # IMPORTS
 ###
@@ -44,6 +46,7 @@ export(mutilsWSShrinkageFunction)
 export(mutilsWSThresholdFunction)
 export(nextDyadic)
 export(ordinal)
+export(prettyPrintList)
 export(properCase)
 export(rotateVector)
 export(scaleData)

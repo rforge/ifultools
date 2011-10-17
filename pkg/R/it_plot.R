@@ -1,5 +1,5 @@
 ################################################
-## S+IFULTools plot functions
+## IFULTOOLS plot functions
 ##
 ##   autoKey
 ##   autoText
