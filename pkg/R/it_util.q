@@ -132,14 +132,8 @@
   # also, if S-PLUS in R parse mode, then integers are converted to floats (1 to 1.)
   # so we accomodate that as well. (set.parse.mode(-1) == 1) means that S-PLUS is in
   # "R" parse mode
-  if ((is.R() || (!is.R() && as.logical(set.parse.mode(-1)))) && isType == "integer"){
-    if (!is.numeric(x) || length(x) > 1)
+  if (!is.numeric(x) || length(x) > 1L)
       stop(deparseText(substitute(x)), " must be scalar of class ", isType)
-  }
-  else{
-    if (!eval(parse(text=paste("is.", isType, "(x)", sep=""))) || length(x) > 1)
-      stop(deparseText(substitute(x)), " must be scalar of class ", isType)
-  }
 
   invisible(NULL)
 }
@@ -157,16 +151,8 @@
   # also, if S-PLUS in R parse mode, then integers are converted to floats (1 to 1.)
   # so we accomodate that as well. (set.parse.mode(-1) == 1) means that S-PLUS is in
   # "R" parse mode
-  if ((is.R() || (!is.R() && as.logical(set.parse.mode(-1)))) && isType == "integer"){
-
-    if (!isVectorAtomic(x) || !is.numeric(x))
+  if (!isVectorAtomic(x) || !is.numeric(x))
       stop(deparseText(substitute(x)), " must be a vector of class ", isType)
-  }
-  else{
-
-    if (!isVectorAtomic(x) || !eval(parse(text=paste("is.", isType, "(x)", sep=""))))
-      stop(deparseText(substitute(x)), " must be a vector of class ", isType)
-  }
 
   invisible(NULL)
 }
@@ -200,7 +186,7 @@
 ###
 
 "em" <- function()
-  ifelse1(is.R(), c(strwidth("m"), strheight("m")), par("1em"))
+  c(strwidth("m"), strheight("m"))
 
 ###
 # ilogb
@@ -589,15 +575,8 @@
 
   N <- numRows(x)
 
-  if (is.R()){
-
-    v <- var(x,na.rm=na.rm)
-    if (!unbiased)
-      v <- v*(N-1)/N
-  }
-  else{
-    v <- var(x, na.method=ifelse1(na.rm, "omit", "fail"), unbiased=unbiased)
-  }
+  v <- var(x,na.rm=na.rm)
+  if (!unbiased) v <- v*(N-1)/N
 
   v
 }
