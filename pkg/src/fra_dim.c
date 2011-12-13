@@ -1569,7 +1569,7 @@ static mutil_errcode localfn_average_neighborhood_radius_constant_density(
   double        *pd_sampled;
   sint32         nrow  = MATUNIV_NROW( embedding );
   sint32         ncol  = MATUNIV_NCOL( embedding );
-  sint32         nelem = MATUNIV_NELEM( embedding );
+  //sint32         nelem = MATUNIV_NELEM( embedding );
   univ_mat       original_indices;
   univ_mat       neighbor_indices;
   univ_mat       neighbor_distances;
@@ -2519,7 +2519,7 @@ static mutil_errcode localfn_kdtree(
   if ( k > max_neighbors ){
 
     /* calculate the reduced size of the embedding in order to
-    accomodate the current density given a fixed number of neighbors (k).
+    accommodate the current density given a fixed number of neighbors (k).
     we have to be careful here to also accommodate a restriction on the
     size of the embedding in the nearest neighbors program which states that
     (for a fixed number of neighbors, k) the number of points in the embedding

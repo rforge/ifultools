@@ -127,10 +127,10 @@
     stop("isType must be an object of class character")
 
   # In R, class(5) is "numeric", not "integer" so we
-  # have to accomodate
+  # have to accommodate
   #
   # also, if S-PLUS in R parse mode, then integers are converted to floats (1 to 1.)
-  # so we accomodate that as well. (set.parse.mode(-1) == 1) means that S-PLUS is in
+  # so we accommodate that as well. (set.parse.mode(-1) == 1) means that S-PLUS is in
   # "R" parse mode
   #if ((is.R() || (!is.R() && as.logical(set.parse.mode(-1)))) && isType == "integer"){
   if (isType == "integer")
@@ -154,10 +154,10 @@
   checkScalarType(isType,"character")
 
   # In R, class(c(1,3:5) is "numeric", not "integer" so we
-  # have to accomodate
+  # have to accommodate
   #
   # also, if S-PLUS in R parse mode, then integers are converted to floats (1 to 1.)
-  # so we accomodate that as well. (set.parse.mode(-1) == 1) means that S-PLUS is in
+  # so we accommodate that as well. (set.parse.mode(-1) == 1) means that S-PLUS is in
   # "R" parse mode
   #if ((is.R() || (!is.R() && as.logical(set.parse.mode(-1)))) && isType == "integer"){
   if (isType == "integer")
@@ -248,8 +248,9 @@
     y <- y[-bad]
   }
 
-  # reverse if x not in increasing montonic order
-  if (any(diff(x)) < 0){
+  # reverse if x not in increasing monotonic order
+  if (any(diff(x) < 0))
+  {
     x <- rev(x)
     y <- rev(y)
   }

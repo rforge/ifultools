@@ -2366,7 +2366,7 @@ SCALAR, INTRP_PTR, MAT_INDEX_MATCH_PTR, MAT_MATCH_PTR ) \
   if ( ( (MAT_IN_PTR)->data[i] ) RELATION ( SCALAR ) ) { \
       if ( MAT_MATCH_PTR ) { \
           \
-          /* grow storage to accomodate new match */ \
+          /* grow storage to accommodate new match */ \
           \
           err = MAT_PREFIX ## _realloc( MAT_MATCH_PTR, 1, COUNT + 1 ); \
           if ( err ) { \
@@ -2382,7 +2382,7 @@ SCALAR, INTRP_PTR, MAT_INDEX_MATCH_PTR, MAT_MATCH_PTR ) \
       \
       if ( MAT_INDEX_MATCH_PTR ) { \
           \
-          /* grow storage to accomodate new match */ \
+          /* grow storage to accommodate new match */ \
           \
           err = mats32_realloc( MAT_INDEX_MATCH_PTR, 1, COUNT + 1); \
           if ( err ) { \
